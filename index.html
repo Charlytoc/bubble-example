@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to use Rigobot Bubble</title>
+    <script src="https://unpkg.com/rigobot-chat-bubble@0.0.31/dist/main.js"></script>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.rigo) {
+          // window.rigo.init("248b53865d6743519ef55b4ec65772a7", {
+          window.rigo.init("0839749d0baa4a51ac165d40b98f95f3", {
+            loglevel: "debug",
+            purposeSlug: "chayito",
+            completions: [
+              {
+                prompt: "What is the name of the Data Science main director?",
+                answer: "The Data Science main director is Jenniffer Guzman",
+                DOMTarget: "#chat-grow",
+              },
+            ],
+            context: "",
+          });
+
+          window.rigo.show({
+            showBubble: false,
+            collapsed: false,
+            highlight: true,
+          });
+
+          window.rigo.updateOptions({
+            showBubble: true,
+            context:
+              "You are currently inside a Github Page to show a product name: Rigobot Bubble, that is the bubble where you live in.",
+          });
+
+          // window.rigo.hide();
+        } else {
+          console.error("window.rigo is not defined");
+        }
+      });
+    </script>
+  </body>
+</html>
