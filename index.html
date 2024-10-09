@@ -234,13 +234,19 @@
       showStep(currentStep);
     </script>
     <script>
+      const bodyText = document.body.textContent;
+
+        const contextToRigo = `This is the content of the body where you are located, this contains information about how to use the bubble where you are living in. After any question related to the documentation inside the body is necessary. \n\n
+        ---
+        ${bodyText}
+        ---
+        `
+
       function displayRigo(event) {
-        
-        event.target.classList.remove("animated")
+        event.target.classList.remove("animated");
         window.rigo.updateOptions({
           showBubble: true,
-          context:
-            "You are currently inside a Github Page to show a product name: Rigobot Bubble, that is the bubble where you live in.",
+          context: contextToRigo,
         });
       }
 
