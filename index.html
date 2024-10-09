@@ -5,65 +5,221 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How to use Rigobot Bubble</title>
     <script src="https://unpkg.com/rigobot-chat-bubble@0.0.31/dist/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/atom-one-dark.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+
+    <style>
+      :root {
+        --main-color: rgb(91, 197, 197);
+        --font-color: rgb(224, 224, 224);
+
+        --gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
+        --gradient-two: linear-gradient(90deg, #ef5d38, #c3783f);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .afacad-flux {
+        font-family: "Afacad Flux", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 478;
+        font-style: normal;
+        font-variation-settings: "slnt" -1;
+      }
+
+      body {
+        font-family: "Afacad Flux", sans-serif;
+        background: radial-gradient(circle, #000000, #00080d);
+        margin: 0;
+        padding: 20px;
+        color: var(--font-color);
+      }
+
+      body > section {
+        max-width: 700px;
+        margin-inline: auto;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      h1 {
+        color: transparent; /* Make the text color transparent */
+        background: var(--gradient);
+        background-clip: text; /* Clip the background to the text */
+        -webkit-background-clip: text; /* For Safari */
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+        font-size: 1.8em;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .carousel {
+        position: relative;
+        max-width: 700px;
+        margin: auto;
+        /* border: 1px solid var(--main-color); */
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .carousel-inner {
+        display: block; /* Change this to block */
+      }
+
+      .carousel-item {
+        padding: 20px;
+        display: none;
+        color: var(--font-color);
+      }
+
+      .active {
+        display: block;
+      }
+
+      .carousel-controls {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background: var(--gradient);
+      }
+
+      button {
+        background-color: #fff;
+        color: var(--main-color);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: var(--main-color);
+        color: #fff;
+      }
+    </style>
   </head>
   <body>
+    <section>
+      <h1>Welcome to Rigobot Bubble</h1>
+      <p>
+        Rigobot Bubble is a customizable chat interface that can be easily
+        integrated into any website. It allows users to interact with a chat
+        agent and receive responses in real-time. To get started, follow the
+        steps below:
+      </p>
+      <button onclick="displayRigo()">Click here to see it in action!</button>
+    </section>
 
-<h1>Welcome to Rigobot Bubble</h1>
-<p>Rigobot Bubble is a customizable chat interface that can be easily integrated into any website. It allows users to interact with a chat agent and receive responses in real-time. To get started, follow the steps below:</p>
+    <h2>Steps to Use Rigobot Bubble</h2>
 
-<h2>Steps to Use Rigobot Bubble</h2>
-
-<ol>
-  <li>
-    <strong>Add the script in the HTML:</strong>
-    <pre><code>&lt;script src="https://unpkg.com/rigobot-chat-bubble@0.0.31/dist/main.js"&gt;&lt;/script&gt;</code></pre>
-  </li>
-  <li>
-    <strong>Initialize Rigobot:</strong>
-    <pre><code>window.rigo.init("CHAT_AGENT_HASH", {
-      loglevel: "debug", // or "info" defaults to info
-      purposeSlug: "chayito", // The purpose slug you want to interact with
-      completions: [
-        {
-          prompt: "What is the name of the Data Science main director?",
-          answer: "The Data Science main director is Jenniffer Guzman",
-          DOMTarget: "#chat-grow",
-        },
-      ], // an array of information the AI will know and takes as absolute truth.
-      context: "", // some context the AI will know about its environment.
-    });</code></pre>
-  </li>
-  <li>
-    <strong>Then show the Rigobot bubble:</strong>
-    <pre><code>window.rigo.show({
-      showBubble: false,
-      collapsed: false,
-      highlight: true,
-    });</code></pre>
-  </li>
-  <li>
-    <strong>Update options if needed:</strong>
-    <pre><code>window.rigo.updateOptions({ /* options */ });</code></pre>
-  </li>
-</ol>
-
-<p>For more information, make sure to check the <a href="https://github.com/Charlytoc/Charlytoc">Rigobot documentation</a>.</p>
-
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <strong>Add the script in the HTML:</strong>
+          <pre><code>&lt;script src="https://unpkg.com/rigobot-chat-bubble@0.0.31/dist/main.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+        <div class="carousel-item">
+          <strong>Initialize Rigobot:</strong>
+          <pre><code>window.rigo.init("CHAT_AGENT_HASH", {
+          loglevel: "debug", // or "info" defaults to info
+          purposeSlug: "chayito", // The purpose slug you want to interact with
+          completions: [
+            {
+              prompt: "What is the name of the Data Science main director?",
+              answer: "The Data Science main director is Jenniffer Guzman",
+              DOMTarget: "#chat-grow",
+            },
+          ],
+          context: "",
+        });</code></pre>
+        </div>
+        <div class="carousel-item">
+          <strong>Then show the Rigobot bubble:</strong>
+          <pre><code>window.rigo.show({
+          showBubble: false,
+          collapsed: false,
+          highlight: true,
+        });</code></pre>
+        </div>
+        <div class="carousel-item">
+          <strong>Update options if needed:</strong>
+          <pre><code>window.rigo.updateOptions({ /* options */ });</code></pre>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button onclick="prevStep()">Prev</button>
+        <span id="step-indicator">1 / 4</span>
+        <button onclick="nextStep()">Next</button>
+      </div>
+    </div>
 
     <script>
+      let currentStep = 0;
+      const items = document.querySelectorAll(".carousel-item");
+      const stepIndicator = document.getElementById("step-indicator");
+
+      function showStep(index) {
+        items.forEach((item, i) => {
+          item.classList.remove("active");
+          if (i === index) {
+            item.classList.add("active");
+          }
+        });
+        stepIndicator.textContent = `${index + 1} / ${items.length}`;
+      }
+
+      function nextStep() {
+        currentStep = (currentStep + 1) % items.length;
+        showStep(currentStep);
+      }
+
+      function prevStep() {
+        currentStep = (currentStep - 1 + items.length) % items.length;
+        showStep(currentStep);
+      }
+
+      // Initialize the first step
+      showStep(currentStep);
+    </script>
+    <script>
+      function displayRigo() {
+        window.rigo.updateOptions({
+          showBubble: true,
+          context:
+            "You are currently inside a Github Page to show a product name: Rigobot Bubble, that is the bubble where you live in.",
+        });
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
+        hljs.highlightAll();
+
         if (window.rigo) {
-          // window.rigo.init("248b53865d6743519ef55b4ec65772a7", {
           window.rigo.init("0839749d0baa4a51ac165d40b98f95f3", {
             loglevel: "debug",
             purposeSlug: "chayito",
-            completions: [
-              {
-                prompt: "What is the name of the Data Science main director?",
-                answer: "The Data Science main director is Jenniffer Guzman",
-                DOMTarget: "#chat-grow",
-              },
-            ],
+            completions: [],
             context: "",
           });
 
@@ -72,14 +228,6 @@
             collapsed: false,
             highlight: true,
           });
-
-          window.rigo.updateOptions({
-            showBubble: true,
-            context:
-              "You are currently inside a Github Page to show a product name: Rigobot Bubble, that is the bubble where you live in.",
-          });
-
-          // window.rigo.hide();
         } else {
           console.error("window.rigo is not defined");
         }
