@@ -7,6 +7,49 @@
     <script src="https://unpkg.com/rigobot-chat-bubble@0.0.31/dist/main.js"></script>
   </head>
   <body>
+
+<h1>Welcome to Rigobot Bubble</h1>
+<p>Rigobot Bubble is a customizable chat interface that can be easily integrated into any website. It allows users to interact with a chat agent and receive responses in real-time. To get started, follow the steps below:</p>
+
+<h2>Steps to Use Rigobot Bubble</h2>
+
+<ol>
+  <li>
+    <strong>Add the script in the HTML:</strong>
+    <pre><code>&lt;script src="https://unpkg.com/rigobot-chat-bubble@0.0.31/dist/main.js"&gt;&lt;/script&gt;</code></pre>
+  </li>
+  <li>
+    <strong>Initialize Rigobot:</strong>
+    <pre><code>window.rigo.init("CHAT_AGENT_HASH", {
+      loglevel: "debug", // or "info" defaults to info
+      purposeSlug: "chayito", // The purpose slug you want to interact with
+      completions: [
+        {
+          prompt: "What is the name of the Data Science main director?",
+          answer: "The Data Science main director is Jenniffer Guzman",
+          DOMTarget: "#chat-grow",
+        },
+      ], // an array of information the AI will know and takes as absolute truth.
+      context: "", // some context the AI will know about its environment.
+    });</code></pre>
+  </li>
+  <li>
+    <strong>Then show the Rigobot bubble:</strong>
+    <pre><code>window.rigo.show({
+      showBubble: false,
+      collapsed: false,
+      highlight: true,
+    });</code></pre>
+  </li>
+  <li>
+    <strong>Update options if needed:</strong>
+    <pre><code>window.rigo.updateOptions({ /* options */ });</code></pre>
+  </li>
+</ol>
+
+<p>For more information, make sure to check the <a href="https://github.com/Charlytoc/Charlytoc">Rigobot documentation</a>.</p>
+
+
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         if (window.rigo) {
