@@ -53,6 +53,13 @@
         border-radius: 10px;
       }
 
+      .presentation {
+        text-align: center;
+      }
+      .presentation > p {
+        text-align: left;
+      }
+
       h1 {
         color: transparent; /* Make the text color transparent */
         background: var(--gradient);
@@ -65,7 +72,7 @@
       }
 
       h2 {
-        color: #333;
+        color: white;
         font-size: 1.8em;
         margin-top: 20px;
         text-align: center;
@@ -103,15 +110,36 @@
         display: flex;
         justify-content: space-between;
         padding: 10px;
-        background: var(--gradient);
       }
 
       button {
-        background-color: #fff;
-        color: var(--main-color);
+        background: var(--gradient-two);
+        color: white;
         border: none;
+        border-radius: 10px;
         padding: 10px;
         cursor: pointer;
+      }
+
+      button.animated {
+        animation: scaler 4s ease-in-out infinite;
+      }
+      @keyframes scaler {
+        0% {
+          scale: 1;
+        }
+        80% {
+          scale: 1.1;
+        }
+        90% {
+          scale: 1;
+        }
+        95% {
+          scale: 1.1;
+        }
+        100% {
+          scale: 1;
+        }
       }
 
       button:hover {
@@ -121,7 +149,7 @@
     </style>
   </head>
   <body>
-    <section>
+    <section class="presentation">
       <h1>Welcome to Rigobot Bubble</h1>
       <p>
         Rigobot Bubble is a customizable chat interface that can be easily
@@ -129,7 +157,9 @@
         agent and receive responses in real-time. To get started, follow the
         steps below:
       </p>
-      <button onclick="displayRigo()">Click here to see it in action!</button>
+      <button class="animated" onclick="displayRigo(event)">
+        Click here to see it in action!
+      </button>
     </section>
 
     <h2>Steps to Use Rigobot Bubble</h2>
@@ -204,7 +234,9 @@
       showStep(currentStep);
     </script>
     <script>
-      function displayRigo() {
+      function displayRigo(event) {
+        
+        event.target.classList.remove("animated")
         window.rigo.updateOptions({
           showBubble: true,
           context:
